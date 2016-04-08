@@ -27,11 +27,6 @@ $(document).ready(function () {
     $("#filter").val("").change();
   });
 
-  $(".glyphicon-menu-hamburger").click(function(){
-    $(".hamburger-menu-container").toggleClass("sidebar-hidden");
-    $(".sidebar").toggleClass("sidebar-hidden");
-  });
-
   $(".machinery-dropdown").click(function(){
     $(".description-selector-content").toggle();
     $(".description-selector-overlay").toggle();
@@ -47,10 +42,14 @@ $(document).ready(function () {
     if($(this).hasClass('selects')){
       $(".compare-description").hide();
       $(".show-description").show();
+      $(".dropdown-header-action-show").show();
+      $(".dropdown-header-action-compare").hide();
     }
     if($(this).hasClass('compares')){
       $(".compare-description").show();
       $(".show-description").hide();
+      $(".dropdown-header-action-compare").show();
+      $(".dropdown-header-action-show").hide();
     }
   });
 

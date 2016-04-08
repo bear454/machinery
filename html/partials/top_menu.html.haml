@@ -8,17 +8,34 @@
             .description-selector-header
               System
             .description-selector-name
-              Select a system description
+              - if @description && @description.name
+                = @description.name
+              - elsif @description_a && @description_a.name
+                = @description_a.name
+              - else
+                Select a system description
             .description-selector-icon
               %span.glyphicon.glyphicon-chevron-down
       .col-lg-6.col-md-6.text-center
         .btn-group
-          %button.description-selector.btn.btn-default-alt.machinery-dropdown.compares
+          - compare_disabled = {}
+          - if !@description && !@description_a
+            - compare_disabled = { disabled: "disabled" }
+          %button.description-selector.btn.btn-default-alt.machinery-dropdown.compares{ compare_disabled }
             .description-selector-header
               System
             .description-selector-name
-              Select a system to compare
+              - if @description_b && @description_b.name
+                = @description_b.name
+              - else
+                Select a system to compare
             .description-selector-icon
               %span.glyphicon.glyphicon-chevron-down
+            - compare = { disabled: "disabled" }
+            - if @description_b
+              - compare = {}
+            %button.close-comparison.btn.btn-default-alt{ compare }
+              .close-comparison-icon
+                %span.glyphicon.glyphicon-remove-circle
       .description-selector-content.scrollable-menu
         = render_partial "landing_page"
