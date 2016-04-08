@@ -34,8 +34,8 @@ $(document).ready(function () {
       $(".machinery-dropdown").not(this).attr('disabled', 'disabled');
       $(".close-comparison").attr('disabled', 'disabled');
     }else{
-      $(".machinery-dropdown").not(this).removeAttr('disabled');
       if (window.location.href.indexOf("/compare/") > -1) {
+        $(".machinery-dropdown").not(this).removeAttr('disabled');
         $(".close-comparison").removeAttr('disabled');
       }
     }
