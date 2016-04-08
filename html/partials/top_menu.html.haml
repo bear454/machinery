@@ -1,0 +1,24 @@
+.container-fluid
+  #description-selector-bar
+    .row
+      .col-lg-6.col-md-6.text-center
+        .description-selector-overlay
+        .btn-group
+          %button.description-selector.btn.btn-default-alt.machinery-dropdown.selects
+            .description-selector-header
+              System
+            .description-selector-name
+              Select a system description
+            .description-selector-icon
+              %span.glyphicon.glyphicon-chevron-down
+      .col-lg-6.col-md-6.text-center
+        .btn-group
+          %button.description-selector.btn.btn-default-alt.machinery-dropdown.compares
+            .description-selector-header
+              System
+            .description-selector-name
+              Select a system to compare
+            .description-selector-icon
+              %span.glyphicon.glyphicon-chevron-down
+      .description-selector-content.scrollable-menu
+        = render_partial "landing_page"
