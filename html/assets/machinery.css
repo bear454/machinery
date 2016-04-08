@@ -256,6 +256,9 @@ h1 {
   min-width: 32px;
   min-height: 32px;
 }
+.dropdown-header-action-compare {
+  display: none;
+}
 #description-selector-bar {
   position: fixed;
   top: 0;
