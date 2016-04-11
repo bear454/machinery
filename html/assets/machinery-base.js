@@ -42,8 +42,13 @@ $(document).ready(function () {
     if($(this).hasClass('selects')){
       $(".compare-description").hide();
       $(".show-description").show();
-      $(".dropdown-header-action-show").show();
-      $(".dropdown-header-action-compare").hide();
+      if (window.location.href.indexOf("/compare/") > -1) {
+        $(".dropdown-header-action-compare").show();
+        $(".dropdown-header-action-show").hide();
+      }else{
+        $(".dropdown-header-action-show").show();
+        $(".dropdown-header-action-compare").hide();
+      }
     }
     if($(this).hasClass('compares')){
       $(".compare-description").show();
