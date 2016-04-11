@@ -31,9 +31,13 @@ $(document).ready(function () {
     $(".description-selector-content").toggle();
     $(".description-selector-overlay").toggle();
     if($(".description-selector-overlay").is(':visible')) {
+      $(this).css("z-index", 4);
+      $(".description-selector").not(this).css("z-index", 2);
+
       $(".machinery-dropdown").not(this).attr('disabled', 'disabled');
       $(".close-comparison").attr('disabled', 'disabled');
     }else{
+      $(".description-selector").css("z-index", 2);
       if (window.location.href.indexOf("/compare/") > -1) {
         $(".close-comparison").removeAttr('disabled');
       }
@@ -65,3 +69,7 @@ $(document).ready(function () {
     $(".machinery-dropdown:enabled").trigger('click');
   });
 })
+
+$( document ).ready(function() {
+  $(".description-selector").css("z-index", 4);
+});

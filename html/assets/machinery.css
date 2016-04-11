@@ -269,6 +269,9 @@ h1 {
   height: 100px;
   padding-top: 12px;
 }
+.description-selector {
+  z-index: 4;
+}
 @media (min-width: 992px) {
   .description-selector {
     width: 425px;
