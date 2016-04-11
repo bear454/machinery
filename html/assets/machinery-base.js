@@ -35,8 +35,11 @@ $(document).ready(function () {
       $(".close-comparison").attr('disabled', 'disabled');
     }else{
       if (window.location.href.indexOf("/compare/") > -1) {
-        $(".machinery-dropdown").not(this).removeAttr('disabled');
         $(".close-comparison").removeAttr('disabled');
+      }
+      if (window.location.pathname != "/") {
+        $(".machinery-dropdown").not(this).removeAttr('disabled');
+
       }
     }
     if($(this).hasClass('selects')){
