@@ -31,9 +31,9 @@
                 Select a system to compare
             .description-selector-icon
               %span.glyphicon.glyphicon-chevron-down
-            - compare = { disabled: "disabled" }
+            - compare = { disabled: "disabled", title: "Close this description"}
             - if @description_b
-              - compare = {}
+              - compare = {title: "Close this description"}
             %button.close-comparison.btn.btn-default-alt{ compare }
               .close-comparison-icon
                 %span.glyphicon.glyphicon-remove-circle
