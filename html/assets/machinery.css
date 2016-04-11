@@ -266,7 +266,6 @@ h1 {
   z-index: 2;
   width: 100%;
   padding-left: 15px;
-  background-color: #3d3936;
   height: 100px;
   padding-top: 12px;
 }
@@ -281,26 +280,22 @@ h1 {
   }
 }
 .description-selector-header {
-  color: #FFF;
   float: left;
   width: 80%;
   text-align: left;
 }
 .description-selector-name {
-  color: #FFF;
   float: left;
   width: 80%;
   text-align: left;
   font-size: 2em;
 }
 .description-selector-icon {
-  color: #FFF;
   font-size: 2em;
   margin-top: 9px;
   margin-right: -40px;
 }
 .sidebar {
-  background: #3d3936;
   color: #e9e0d6;
   height:90%;
   width: 480px;
@@ -386,7 +381,6 @@ h1 {
   width: 60px;
 }
 .close-comparison-icon {
-  color: #FFF;
   font-size: 2em;
   margin-top: 10px;
   padding-bottom: 10px;
