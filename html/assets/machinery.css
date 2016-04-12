@@ -260,6 +260,7 @@ h1 {
   display: none;
 }
 #description-selector-bar {
+  background-color: #E9E0D6;
   position: fixed;
   top: 0;
   left: 0;
