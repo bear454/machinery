@@ -294,6 +294,9 @@ h1 {
   text-align: left;
   font-size: 2em;
 }
+.italic {
+  font-style: italic;
+}
 .description-selector-icon {
   font-size: 2em;
   margin-top: 9px;

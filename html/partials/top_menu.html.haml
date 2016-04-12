@@ -13,7 +13,8 @@
               - elsif @description_a && @description_a.name
                 = @description_a.name
               - else
-                No description selected
+                .italic
+                  No description selected
             .description-selector-icon
               %span.glyphicon.glyphicon-chevron-down
       .col-lg-6.col-md-6.text-center
@@ -28,7 +29,8 @@
               - if @description_b && @description_b.name
                 = @description_b.name
               - else
-                Click to compare
+                .italic
+                  Click to compare
             .description-selector-icon
               %span.glyphicon.glyphicon-chevron-down
             - compare = { disabled: "disabled", title: "Close this description"}
