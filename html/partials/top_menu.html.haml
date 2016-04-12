@@ -15,8 +15,7 @@
               - else
                 .italic
                   No description selected
-            .description-selector-icon
-              %span.glyphicon.glyphicon-chevron-down
+            %span.description-selector-icon.glyphicon.glyphicon-chevron-down
       .col-lg-6.col-md-6.text-center
         .btn-group
           - compare_disabled = {}
@@ -31,8 +30,7 @@
               - else
                 .italic
                   Click to compare
-            .description-selector-icon
-              %span.glyphicon.glyphicon-chevron-down
+            %span.description-selector-icon.glyphicon.glyphicon-chevron-down
             - compare = { disabled: "disabled", title: "Close this description"}
             - if @description_b
               - compare = {title: "Close this description"}
