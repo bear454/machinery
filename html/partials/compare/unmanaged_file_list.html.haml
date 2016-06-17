@@ -7,7 +7,7 @@
       %tr
         %th Name
         %th.small Type
-        - if list.has_metadata || list.first.user
+        - if list.has_metadata?
           %th.medium Mode
           %th.medium User
           %th.medium Group
@@ -22,7 +22,7 @@
         %tr
           %td= file.name
           %td= file.type
-          - if list.has_metadata || list.first.user
+          - if list.has_metadata?
             %td= file.mode
             %td= file.user
             %td= file.group

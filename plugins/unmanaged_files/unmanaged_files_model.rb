@@ -73,6 +73,10 @@ class UnmanagedFilesScope < FileScope
     comparison.push(common)
   end
 
+  def has_metadata?
+    @metadata ||= has_metadata || elements.any?(&:user)
+  end
+
   private
 
   def files_match(a, b)

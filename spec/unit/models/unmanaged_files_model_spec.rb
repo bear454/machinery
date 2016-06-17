@@ -53,6 +53,50 @@ describe "unmanaged_files model" do
         scope_a.compare_with(scope_b)
       end
     end
+
+    describe "#has_metadata?" do
+      let(:extracted_unmanaged_files) {
+        UnmanagedFilesScope.new(
+          [
+            UnmanagedFile.new(
+              name:    "/foo",
+              type:    "file",
+              mode:    "777",
+              user:    "user",
+              group:   "group",
+              size:    1,
+              files:   2,
+              dirs:    3,
+            )
+          ]
+        )
+      }
+
+      let(:unextracted_unmanaged_files) {
+        UnmanagedFilesScope.new(
+          [
+            UnmanagedFile.new(
+              name: "/foo",
+              type:    "file"
+            )
+          ],
+          has_metadata: false
+        )
+      }
+
+      it "returns true if the attribute has_metadata is true" do
+        object = UnmanagedFilesScope.new([], has_metadata: true)
+        expect(object.has_metadata?).to be(true)
+      end
+
+      it "returns true if has_metadata is missing but the first element has a user attribute" do
+        expect(extracted_unmanaged_files.has_metadata?).to be(true)
+      end
+
+      it "returns false if the attribute has_metadata is false and there is no user attribute" do
+        expect(unextracted_unmanaged_files.has_metadata?).to be(false)
+      end
+    end
   end
 
   describe UnmanagedFilesScope do
