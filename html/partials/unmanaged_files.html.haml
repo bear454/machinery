@@ -25,11 +25,11 @@
                     %th.medium User
                     %th.medium Group
                     %th.medium Size
-                  - if unmanaged_files.any?(&:file_objects)
-                    %th.medium File Objects
-                  - else
-                    %th.medium Subdirectories
-                    %th.medium Files in Directory
+                    - if unmanaged_files.any?(&:file_objects)
+                      %th.medium File Objects
+                    - else
+                      %th.medium Subdirectories
+                      %th.medium Files in Directory
               %tbody
                 - unmanaged_files.each do |file|
                   %tr
