@@ -57,44 +57,44 @@ describe "unmanaged_files model" do
     describe "check for attributes for rendering" do
       let(:extracted_unmanaged_files) {
         UnmanagedFilesScope.new(
-        [
-          UnmanagedFile.new(
-            name:    "/foo",
-            type:    "file",
-            mode:    "777",
-            user:    "user",
-            group:   "group",
-            size:    1,
-            files:   2,
-            dirs:    3
-          )
-        ]
+          [
+            UnmanagedFile.new(
+              name:    "/foo",
+              type:    "file",
+              mode:    "777",
+              user:    "user",
+              group:   "group",
+              size:    1,
+              files:   2,
+              dirs:    3
+            )
+          ]
         )
       }
       let(:unextracted_unmanaged_files) {
         UnmanagedFilesScope.new(
-        [
-          UnmanagedFile.new(
-            name: "/foo",
-            type:    "file"
-          )
-        ],
-        has_metadata: false
+          [
+            UnmanagedFile.new(
+              name: "/foo",
+              type:    "file"
+            )
+          ],
+          has_metadata: false
         )
       }
       let(:extracted_unmanaged_files_file_objects) {
         UnmanagedFilesScope.new(
-        [
-          UnmanagedFile.new(
-            name:    "/foo",
-            type:    "file",
-            mode:    "777",
-            user:    "user",
-            group:   "group",
-            size:    1,
-            file_objects: 4
-          )
-        ]
+          [
+            UnmanagedFile.new(
+              name:    "/foo",
+              type:    "file",
+              mode:    "777",
+              user:    "user",
+              group:   "group",
+              size:    1,
+              file_objects: 4
+            )
+          ]
         )
       }
       describe "#has_metadata?" do
