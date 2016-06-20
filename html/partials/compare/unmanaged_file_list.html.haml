@@ -12,7 +12,7 @@
           %th.medium User
           %th.medium Group
           %th.medium Size
-          - if list.any?(&:file_objects)
+          - if list.file_objects?
             %th.medium File Objects
           - else
             %th.medium Subdir.
@@ -27,11 +27,11 @@
             %td= file.user
             %td= file.group
             %td= number_to_human_size(file.size)
-            - if list.any?(&:file_objects)
+            - if list.file_objects?
               %td
-                = file.file_objects if file.file_objects
+                = file.file_objects
             - else
               %td
-                = file.dirs if file.dirs
+                = file.dirs
               %td
-                = file.files if file.files
+                = file.files

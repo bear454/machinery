@@ -77,6 +77,10 @@ class UnmanagedFilesScope < FileScope
     @metadata ||= has_metadata || elements.any?(&:user)
   end
 
+  def file_objects?
+    @file_objects ||= elements.any?(&:file_objects)
+  end
+
   private
 
   def files_match(a, b)

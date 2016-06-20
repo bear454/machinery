@@ -54,47 +54,72 @@ describe "unmanaged_files model" do
       end
     end
 
-    describe "#has_metadata?" do
+    describe "check for attributes for rendering" do
       let(:extracted_unmanaged_files) {
         UnmanagedFilesScope.new(
-          [
-            UnmanagedFile.new(
-              name:    "/foo",
-              type:    "file",
-              mode:    "777",
-              user:    "user",
-              group:   "group",
-              size:    1,
-              files:   2,
-              dirs:    3,
-            )
-          ]
+        [
+          UnmanagedFile.new(
+          name:    "/foo",
+          type:    "file",
+          mode:    "777",
+          user:    "user",
+          group:   "group",
+          size:    1,
+          files:   2,
+          dirs:    3,
+          )
+        ]
         )
       }
-
       let(:unextracted_unmanaged_files) {
         UnmanagedFilesScope.new(
-          [
-            UnmanagedFile.new(
-              name: "/foo",
-              type:    "file"
-            )
-          ],
-          has_metadata: false
+        [
+          UnmanagedFile.new(
+          name: "/foo",
+          type:    "file"
+          )
+        ],
+        has_metadata: false
         )
       }
+      let(:extracted_unmanaged_files_file_objects) {
+        UnmanagedFilesScope.new(
+        [
+          UnmanagedFile.new(
+          name:    "/foo",
+          type:    "file",
+          mode:    "777",
+          user:    "user",
+          group:   "group",
+          size:    1,
+          file_objects: 4
+          )
+        ]
+        )
+      }
+      describe "#has_metadata?" do
+        it "returns true if the attribute has_metadata is true" do
+          object = UnmanagedFilesScope.new([], has_metadata: true)
+          expect(object.has_metadata?).to be(true)
+        end
 
-      it "returns true if the attribute has_metadata is true" do
-        object = UnmanagedFilesScope.new([], has_metadata: true)
-        expect(object.has_metadata?).to be(true)
+        it "returns true if has_metadata is missing but the first element has a user attribute" do
+          expect(extracted_unmanaged_files.has_metadata?).to be(true)
+        end
+
+        it "returns false if the attribute has_metadata is false and there is no user attribute" do
+          expect(unextracted_unmanaged_files.has_metadata?).to be(false)
+        end
       end
 
-      it "returns true if has_metadata is missing but the first element has a user attribute" do
-        expect(extracted_unmanaged_files.has_metadata?).to be(true)
-      end
+      describe "#file_objects?" do
+        it "returns true if file_objects exist" do
+          expect(extracted_unmanaged_files_file_objects.file_objects?).to be(true)
+        end
 
-      it "returns false if the attribute has_metadata is false and there is no user attribute" do
-        expect(unextracted_unmanaged_files.has_metadata?).to be(false)
+        it "returns false if file_objects don't exist" do
+          expect(extracted_unmanaged_files.file_objects?).to be(false)
+        end
       end
     end
   end
