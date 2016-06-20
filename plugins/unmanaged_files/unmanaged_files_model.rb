@@ -73,12 +73,12 @@ class UnmanagedFilesScope < FileScope
     comparison.push(common)
   end
 
-  def has_metadata?
-    @metadata ||= has_metadata || elements.any?(&:user)
+  def contains_metadata?
+    @metadata ||= has_metadata || !!elements.any?(&:user)
   end
 
-  def file_objects?
-    @file_objects ||= elements.any?(&:file_objects)
+  def has_subdir_count?
+    @has_subdirs ||= !!elements.any?(&:files)
   end
 
   private
