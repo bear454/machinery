@@ -59,14 +59,14 @@ describe "unmanaged_files model" do
         UnmanagedFilesScope.new(
         [
           UnmanagedFile.new(
-          name:    "/foo",
-          type:    "file",
-          mode:    "777",
-          user:    "user",
-          group:   "group",
-          size:    1,
-          files:   2,
-          dirs:    3,
+            name:    "/foo",
+            type:    "file",
+            mode:    "777",
+            user:    "user",
+            group:   "group",
+            size:    1,
+            files:   2,
+            dirs:    3
           )
         ]
         )
@@ -75,8 +75,8 @@ describe "unmanaged_files model" do
         UnmanagedFilesScope.new(
         [
           UnmanagedFile.new(
-          name: "/foo",
-          type:    "file"
+            name: "/foo",
+            type:    "file"
           )
         ],
         has_metadata: false
@@ -86,13 +86,13 @@ describe "unmanaged_files model" do
         UnmanagedFilesScope.new(
         [
           UnmanagedFile.new(
-          name:    "/foo",
-          type:    "file",
-          mode:    "777",
-          user:    "user",
-          group:   "group",
-          size:    1,
-          file_objects: 4
+            name:    "/foo",
+            type:    "file",
+            mode:    "777",
+            user:    "user",
+            group:   "group",
+            size:    1,
+            file_objects: 4
           )
         ]
         )
