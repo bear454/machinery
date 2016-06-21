@@ -74,11 +74,11 @@ class UnmanagedFilesScope < FileScope
   end
 
   def contains_metadata?
-    @metadata ||= has_metadata || !!elements.any?(&:user)
+    @metadata ||= has_metadata || elements.any?(&:user)
   end
 
-  def has_subdir_count?
-    @has_subdirs ||= !!elements.any?(&:files)
+  def has_subdir_counts?
+    @has_subdirs ||= elements.any?(&:files)
   end
 
   private

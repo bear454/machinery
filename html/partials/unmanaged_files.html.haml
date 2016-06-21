@@ -25,7 +25,7 @@
                     %th.medium User
                     %th.medium Group
                     %th.medium Size
-                    - if unmanaged_files.has_subdir_count?
+                    - if unmanaged_files.has_subdir_counts?
                       %th.medium Subdirectories
                       %th.medium Files in Directory
                     - else
@@ -46,7 +46,7 @@
                       %td= file.user
                       %td= file.group
                       %td= number_to_human_size(file.size)
-                    - if unmanaged_files.has_subdir_count?
+                    - if unmanaged_files.has_subdir_counts?
                       %td= file.dirs
                       %td= file.files
                     - else

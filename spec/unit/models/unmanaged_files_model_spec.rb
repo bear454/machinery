@@ -112,13 +112,13 @@ describe "unmanaged_files model" do
         end
       end
 
-      describe "#has_subdir_count?" do
+      describe "#has_subdir_counts?" do
         it "returns false if file_objects exist" do
-          expect(extracted_unmanaged_files_file_objects.has_subdir_count?).to be(false)
+          expect(extracted_unmanaged_files_file_objects.has_subdir_counts?).to be(false)
         end
 
         it "returns true if subdirectories exist" do
-          expect(extracted_unmanaged_files.has_subdir_count?).to be(true)
+          expect(extracted_unmanaged_files.has_subdir_counts?).to be(true)
         end
       end
     end
