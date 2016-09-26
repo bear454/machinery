@@ -62,7 +62,7 @@ codebase or test the latest development changes.
          $ sudo zypper in ruby rubygem-bundler
 
      After the installation, make sure that your ruby version is at least
-     `2.0.0.p247-3.11.1`:
+     `2.1.0`:
 
          $ ruby -v
 
