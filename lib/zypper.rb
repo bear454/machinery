@@ -41,10 +41,15 @@ class Zypper
         end
 
         block.call(zypper)
+        clean_up(zypper_base)
       end
     end
 
     private
+
+    def clean_up(base_path)
+      Cheetah.run("sudo", "rm", "-rf", File.join(base_path, "var/cache/zypp"))
+    end
 
     def create_zypp_config(base_path, arch)
       zypp_dir = File.join(base_path, "/etc/zypp")
@@ -70,7 +75,7 @@ class Zypper
   end
 
   def refresh
-    call_zypper "refresh"
+    call_zypper "refresh", sudo: true
   end
 
   def download_package(package)
@@ -89,7 +94,12 @@ class Zypper
   private
 
   def call_zypper(*args)
-    cmd = ["zypper"]
+    options = {}
+    if args.last.is_a?(Hash) && args.last[:sudo]
+      cmd = ["sudo", "zypper"]
+    else
+      cmd = ["zypper"]
+    end
     cmd += @zypper_options if @zypper_options
     cmd += args
 
